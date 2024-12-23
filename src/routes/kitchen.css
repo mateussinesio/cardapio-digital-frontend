@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.category-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 90%;
+}
+
+.kitchen-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.add-category-button {
+    cursor: pointer;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 130px;
+}
+
+.add-category-button:hover {
+    color: white;
+    background-color: #421429;
+}
+
+.add-item-button {
+    cursor: pointer;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 130px;
+}
+
+.add-item-button:hover {
+    color: white;
+    background-color: #421429;
+}

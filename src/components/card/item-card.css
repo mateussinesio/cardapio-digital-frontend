@@ -1,0 +1,69 @@
+.item-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: #421429;
+    padding: 0;
+    position: relative;
+    border: 1px solid white;
+}
+
+.item-card img {
+    border-radius: 8px 8px 0 0;
+    width: 250px;
+    height: 230px;
+}
+
+.item-card h2 {
+    color: #e0dcdd;
+    text-shadow: 3px 2px #260b18;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 230px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+}
+
+.item-card p {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 230px;
+    text-align: center;
+    text-shadow: 1px 1px #260b18;
+    color: #e0dcdd;
+    padding: 10px;
+}
+
+.delete-item-button {
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 12px;
+}
+
+.delete-item-button:hover {
+    color: white;
+    background-color: #260b18;
+}
+
+.update-item-button {
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 12px;
+}
+
+.update-item-button:hover {
+    color: white;
+    background-color: #260b18;
+}
