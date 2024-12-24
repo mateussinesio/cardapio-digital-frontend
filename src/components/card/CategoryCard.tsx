@@ -8,7 +8,7 @@ interface CategoryCardProps {
     onDelete?: () => void;
 }
 
-export function CategoryCard({ name, image, onEdit = () => {}, onDelete = () => {} }: CategoryCardProps) {
+export function CategoryCard({ name, image, onEdit = () => { }, onDelete = () => { } }: CategoryCardProps) {
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -22,7 +22,7 @@ export function CategoryCard({ name, image, onEdit = () => {}, onDelete = () => 
 
     return (
         <div className="card">
-            <img src={`data:image/jpeg;base64,${image}`} alt={name} onClick={handleClick} />
+            <img src={`http://localhost:8080${image}`} alt={name} onClick={handleClick} />
             <h2 onClick={handleClick}>{name}</h2>
             {location.pathname.startsWith('/cozinha/cardapio') && (
                 <>
