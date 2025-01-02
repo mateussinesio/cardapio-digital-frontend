@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { ItemData } from "../../interface/item-data";
 import { addItem } from "../../hooks/add-item";
 import { showCategories } from "../../hooks/show-categories";
 import { deleteItem } from "../../hooks/delete-item";
@@ -8,21 +7,34 @@ import "./item-modal.css";
 
 interface InputProps {
     label: string;
-    value: string | number;
+    value: string | number | readonly string[] | undefined | File;
     updateValue(value: any): void;
-    formatValue?(value: any): string;
+    type?: string;
+    formatValue?: (value: any) => string;
 }
 
-const Input = ({ label, value, updateValue, formatValue }: InputProps) => {
+const Input = ({ label, value, updateValue, type = "text", formatValue }: InputProps) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (type === "file" && event.target.files) {
+            updateValue(event.target.files[0]);
+        } else {
+            updateValue(event.target.value);
+        }
+    };
+
     const formattedValue = formatValue ? formatValue(value) : value;
 
     return (
         <>
             <label>{label}</label>
-            <input value={formattedValue} onChange={event => updateValue(event.target.value)}></input>
+            {type === "file" ? (
+                <input type={type} onChange={handleChange} />
+            ) : (
+                <input type={type} value={formattedValue as string | number | readonly string[] | undefined} onChange={handleChange} />
+            )}
         </>
     );
-}
+};
 
 interface ItemModalProps {
     isVisible: boolean;
@@ -34,7 +46,7 @@ export function ItemModal({ isVisible, handleClose, itemId }: ItemModalProps) {
     const [category, setCategory] = useState("");
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
-    const [image, setImage] = useState("");
+    const [image, setImage] = useState<File | undefined>(undefined);
     const [price, setPrice] = useState(0);
     const { mutate } = addItem();
     const { data: categories, isLoading, error } = showCategories();
@@ -44,16 +56,16 @@ export function ItemModal({ isVisible, handleClose, itemId }: ItemModalProps) {
     }
 
     const submit = () => {
-        const formattedPrice = price.toString().replace(',', '.');
-        const itemData: ItemData = {
-            name,
-            image,
-            price: parseFloat(formattedPrice),
-            category,
-            description,
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("description", description);
+        formData.append("price", price.toString().replace(',', '.'));
+        formData.append("category", category);
+        if (image) {
+            formData.append("image", image);
         }
 
-        mutate(itemData);
+        mutate(formData);
         handleClose();
     }
 
@@ -88,7 +100,7 @@ export function ItemModal({ isVisible, handleClose, itemId }: ItemModalProps) {
                     )}
                     <Input label="Nome:" value={name} updateValue={setName}></Input>
                     <Input label="Descrição:" value={description} updateValue={setDescription}></Input>
-                    <Input label="Imagem:" value={image} updateValue={setImage}></Input>
+                    <Input label="Imagem:" value={undefined} updateValue={setImage} type="file"></Input>
                     <Input label="Preço:" value={price} updateValue={setPrice} formatValue={formatPrice}></Input>
                 </form>
                 <div className="item-modal-buttons-container">
