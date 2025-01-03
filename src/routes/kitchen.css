@@ -49,3 +49,18 @@
     color: white;
     background-color: #421429;
 }
+
+.redirect-to-public-menu-button {
+    cursor: pointer;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 130px;
+}
+
+.redirect-to-public-menu-button:hover {
+    color: white;
+    background-color: #421429;
+}

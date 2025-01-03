@@ -4,22 +4,22 @@ import { showCategories } from '../hooks/show-categories';
 import { CategoryModal } from '../components/modals/CategoryModal';
 import { ItemModal } from '../components/modals/ItemModal';
 import { CategoryCard } from '../components/card/CategoryCard';
-import { EditCategoryModal } from '../components/modals/EditCategoryModal'; // Importe o modal de edição
+import { EditCategoryModal } from '../components/modals/EditCategoryModal';
 import { DeleteConfirmationModal } from '../components/modals/DeleteCategoryConfirmationModal';
 import { useNavigate } from 'react-router';
 import { CategoryData } from '../interface/category-data';
-import { useDeleteCategory } from '../hooks/delete-category'; // Importe a função de deleção
+import { useDeleteCategory } from '../hooks/delete-category';
 
 const Kitchen: React.FC = () => {
   const { data } = showCategories();
   const categoryDataArray = Array.isArray(data) ? data : [];
   const [isCategoryModalOpen, setIsCategoryModalOpen] = useState(false);
   const [isItemModalOpen, setIsItemModalOpen] = useState(false);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false); // Estado para o modal de edição
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false); // Estado para o modal de deleção
-  const [selectedCategory, setSelectedCategory] = useState<CategoryData | null>(null); // Categoria selecionada para edição
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<CategoryData | null>(null);
   const navigate = useNavigate();
-  const deleteCategory = useDeleteCategory(); // Use a função de deleção
+  const deleteCategory = useDeleteCategory();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -57,9 +57,13 @@ const Kitchen: React.FC = () => {
 
   const confirmDeleteCategory = () => {
     if (selectedCategory && selectedCategory.id) {
-      deleteCategory.mutate(selectedCategory.id.toString()); // Converta o id para string
+      deleteCategory.mutate(selectedCategory.id.toString());
       handleCloseModals();
     }
+  };
+
+  const handleRedirectToCardapio = () => {
+    window.open('/cardapio', '_blank');
   };
 
   return (
@@ -67,6 +71,7 @@ const Kitchen: React.FC = () => {
       <div className="kitchen-buttons-container">
         <button className="add-category-button" type="submit" onClick={handleOpenCategoryModal}>Adicionar categoria</button>
         <button className="add-item-button" type="submit" onClick={handleOpenItemModal}>Adicionar item</button>
+        <button className="redirect-to-public-menu-button" onClick={handleRedirectToCardapio}>Ir para cardápio</button>
       </div>
       <div className="category-container">
         {categoryDataArray.map(categoryData => (
@@ -74,8 +79,8 @@ const Kitchen: React.FC = () => {
             key={categoryData.id}
             name={categoryData.name}
             image={categoryData.image}
-            onEdit={() => handleEditCategory(categoryData)} // Adicione o evento de edição
-            onDelete={() => handleDeleteCategory(categoryData)} // Adicione o evento de deleção
+            onEdit={() => handleEditCategory(categoryData)}
+            onDelete={() => handleDeleteCategory(categoryData)}
           />
         ))}
       </div>
@@ -85,7 +90,7 @@ const Kitchen: React.FC = () => {
         <EditCategoryModal
           isVisible={isEditModalOpen}
           handleClose={handleCloseModals}
-          initialData={selectedCategory} // Passe os dados iniciais da categoria
+          initialData={selectedCategory}
         />
       )}
       {isDeleteModalOpen && (
