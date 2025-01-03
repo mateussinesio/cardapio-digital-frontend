@@ -1,4 +1,4 @@
-.overlay {
+.add-category-modal-overlay {
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.4);
@@ -12,30 +12,31 @@
     justify-content: center;
 }
 
-.container {
+.add-category-modal-container {
     background-color: white;
     padding: 20px;
-    height: 60%;
+    height: auto;
     width: 35%;
+    margin: 12px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.container h2 {
+.add-category-modal-container h2 {
     text-align: left;
     font-size: 32px;
     padding: 10px;
 }
 
-.input-container {
+.add-category-modal-input-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.container input {
+.add-category-modal-container input {
     padding: 12px;
     border: 2px solid #c6c5c5c5;
     color: rgba(0, 0, 0, 0.9);
@@ -44,20 +45,20 @@
     margin-bottom: 12px;
 }
 
-.container label {
+.add-category-modal-container label {
     padding: 10px;
     color: #242424;
     font-weight: 600;
     font-size: 18px;
 }
 
-.buttons-container {
+.add-category-modal-buttons-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.buttons-container button {
+.add-category-modal-buttons-container button {
     cursor: pointer;
     padding: 20px;
     border-radius: 9px;
@@ -66,7 +67,7 @@
     margin-top: 20px;
 }
 
-.buttons-container button:hover {
+.add-category-modal-buttons-container button:hover {
     color: white;
     background-color: #421429;
 }

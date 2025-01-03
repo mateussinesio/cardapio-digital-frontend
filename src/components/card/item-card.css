@@ -7,7 +7,6 @@
     background-color: #421429;
     padding: 0;
     position: relative;
-    border: 1px solid white;
 }
 
 .item-card img {
@@ -40,13 +39,20 @@
     padding: 10px;
 }
 
+.item-card-buttons {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 11px;
+    width: 90%;
+}
+
 .delete-item-button {
     cursor: pointer;
     padding: 20px;
     border-radius: 9px;
     font-size: 16px;
     font-weight: 500;
-    margin: 12px;
 }
 
 .delete-item-button:hover {
@@ -60,7 +66,6 @@
     border-radius: 9px;
     font-size: 16px;
     font-weight: 500;
-    margin: 12px;
 }
 
 .update-item-button:hover {

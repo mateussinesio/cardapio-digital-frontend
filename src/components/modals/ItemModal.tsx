@@ -79,16 +79,16 @@ export function ItemModal({ isVisible, handleClose, itemId }: ItemModalProps) {
     if (!isVisible) return null;
 
     return (
-        <div className="item-modal-overlay">
-            <div className="item-modal-container">
+        <div className="add-item-modal-overlay">
+            <div className="add-item-modal-container">
                 <h2>Adicionar um item no cardápio</h2>
-                <form className="item-modal-input-container">
+                <form className="add-item-modal-input-container">
                     {isLoading ? (
                         <p>Carregando categorias...</p>
                     ) : error ? (
                         <p>Erro ao carregar as categorias.</p>
                     ) : (
-                        <div>
+                        <div className="select-category-container">
                             <label>Categoria:</label>
                             <select value={category} onChange={event => setCategory(event.target.value)}>
                                 <option value="">Selecione uma categoria</option>
@@ -103,11 +103,11 @@ export function ItemModal({ isVisible, handleClose, itemId }: ItemModalProps) {
                     <Input label="Imagem:" value={undefined} updateValue={setImage} type="file"></Input>
                     <Input label="Preço:" value={price} updateValue={setPrice} formatValue={formatPrice}></Input>
                 </form>
-                <div className="item-modal-buttons-container">
-                    <button onClick={submit} className="item-modal-submit-button">Adicionar</button>
-                    <button onClick={handleClose} className="item-modal-close-button">Fechar</button>
+                <div className="add-item-modal-buttons-container">
+                    <button onClick={submit} className="add-item-modal-submit-button">Adicionar</button>
+                    <button onClick={handleClose} className="add-item-modal-close-button">Fechar</button>
                     {itemId && (
-                        <button onClick={handleDelete} className="item-modal-delete-button">Deletar</button>
+                        <button onClick={handleDelete} className="add-item-modal-delete-button">Deletar</button>
                     )}
                 </div>
             </div>

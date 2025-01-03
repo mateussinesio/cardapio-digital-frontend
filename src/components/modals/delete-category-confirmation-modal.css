@@ -1,4 +1,4 @@
-.item-modal-overlay {
+.delete-category-modal-overlay {
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.4);
@@ -10,30 +10,31 @@
     align-items: center;
 }
 
-.item-modal-container {
+.delete-category-modal-container {
     background-color: white;
     padding: 20px;
-    height: fit-content;
-    width: 50%;
+    height: auto;
+    width: 40%;
+    margin: 20px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.item-modal-container h2 {
-    text-align: justify;
+.delete-category-modal-container h2 {
+    text-align: left;
     font-size: 32px;
     padding: 10px;
 }
 
-.item-modal-buttons-container {
+.delete-category-modal-buttons-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.item-modal-buttons-container button {
+.delete-category-modal-buttons-container button {
     cursor: pointer;
     padding: 20px;
     border-radius: 9px;
@@ -42,7 +43,7 @@
     margin-top: 20px;
 }
 
-.item-modal-buttons-container button:hover {
+.delete-category-modal-buttons-container button:hover {
     color: white;
     background-color: #421429;
 }

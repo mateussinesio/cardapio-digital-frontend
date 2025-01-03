@@ -13,7 +13,7 @@ createRoot(document.getElementById('container')!).render(
   <BrowserRouter>
     <QueryClientProvider client={queryClient}>
       <Routes>
-        <Route path="/" element={<Navigate to="/cardapio" />} />
+        <Route path="/" element={<Navigate to="/cozinha/cardapio" />} />
         <Route path="/cardapio" element={<Menu />} />
         <Route path="/cardapio/:category" element={<Items />} />
         <Route path="/cozinha/cardapio/:category" element={<Items />} />

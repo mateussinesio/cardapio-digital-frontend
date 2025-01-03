@@ -55,14 +55,14 @@ export function CategoryModal({ isVisible, handleClose }: CreateModalProps) {
     if (!isVisible) return null;
 
     return (
-        <div className="overlay">
-            <div className="container">
+        <div className="add-category-modal-overlay">
+            <div className="add-category-modal-container">
                 <h2>Adicionar uma categoria no cardápio</h2>
-                <form className="input-container">
+                <form className="add-category-modal-input-container">
                     <Input label="Nome:" value={name} updateValue={setName} />
                     <Input label="Imagem:" value={undefined} updateValue={setImage} type="file" />
                 </form>
-                <div className="buttons-container">
+                <div className="add-category-modal-buttons-container">
                     <button onClick={submit} className="submit-button">Adicionar</button>
                     <button onClick={handleClose} className="close-button">Fechar</button>
                 </div>

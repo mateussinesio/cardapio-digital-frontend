@@ -12,18 +12,18 @@
     justify-content: center;
 }
 
-.container {
+.edit-category-container {
     background-color: white;
     padding: 20px;
-    height: 60%;
-    width: 35%;
+    height: auto;
+    width: auto;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.container h2 {
+.edit-category-container h2 {
     text-align: left;
     font-size: 32px;
     padding: 10px;
@@ -35,7 +35,7 @@
     justify-content: center;
 }
 
-.container input {
+.edit-category-container input {
     padding: 12px;
     border: 2px solid #c6c5c5c5;
     color: rgba(0, 0, 0, 0.9);
@@ -44,7 +44,7 @@
     margin-bottom: 12px;
 }
 
-.container label {
+.edit-category-container label {
     padding: 10px;
     color: #242424;
     font-weight: 600;

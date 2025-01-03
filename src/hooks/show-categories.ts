@@ -1,4 +1,4 @@
-import axios, { AxiosPromise } from "axios"
+import axios, { AxiosPromise } from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { CategoryData } from "../interface/category-data";
 
