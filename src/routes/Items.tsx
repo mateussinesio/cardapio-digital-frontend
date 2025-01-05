@@ -3,7 +3,7 @@ import './items.css';
 import { ItemCard } from '../components/card/ItemCard';
 import { showItems } from '../hooks/show-items';
 import { useParams, useLocation, useNavigate } from 'react-router';
-import { EditItemModal } from '../components/modals/EditItemModal'; // Novo modal de edição
+import { EditItemModal } from '../components/modals/EditItemModal';
 import { DeleteConfirmationModal } from '../components/modals/DeleteItemConfirmationModal';
 import { deleteItem } from '../hooks/delete-item';
 
@@ -14,12 +14,8 @@ const Items: React.FC = () => {
 
     useEffect(() => {
         if (location.pathname.startsWith('/cozinha/cardapio')) {
-            const token = localStorage.getItem('token');
-            if (!token) {
-                navigate('/login');
-            }
         }
-    }, [location.pathname, navigate]);
+    }, [location.pathname]);
 
     if (!category) {
         return <div>Nenhuma categoria foi especificada.</div>;
@@ -75,7 +71,7 @@ const Items: React.FC = () => {
                         description={itemData.description}
                         price={itemData.price}
                         onDelete={() => handleOpenDeleteModal(itemData.id!)}
-                        onUpdate={() => handleOpenEditModal(itemData)} // Adicione esta linha
+                        onUpdate={() => handleOpenEditModal(itemData)}
                         showDeleteButton={showDeleteButton}
                         showUpdateItemButton={showUpdateItemButton}
                     />
@@ -85,7 +81,7 @@ const Items: React.FC = () => {
                 <EditItemModal
                     isVisible={isEditModalOpen}
                     handleClose={handleCloseEditModal}
-                    initialData={selectedItem} // Passe o item selecionado para o modal
+                    initialData={selectedItem}
                 />
             )}
             {isDeleteModalOpen && (

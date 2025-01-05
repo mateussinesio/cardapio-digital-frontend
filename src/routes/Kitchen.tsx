@@ -9,6 +9,7 @@ import { DeleteConfirmationModal } from '../components/modals/DeleteCategoryConf
 import { useNavigate } from 'react-router';
 import { CategoryData } from '../interface/category-data';
 import { useDeleteCategory } from '../hooks/delete-category';
+import axios from 'axios';
 
 const Kitchen: React.FC = () => {
   const { data } = showCategories();
@@ -22,10 +23,15 @@ const Kitchen: React.FC = () => {
   const deleteCategory = useDeleteCategory();
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      navigate('/login');
-    }
+    const checkAuth = async () => {
+      try {
+        await axios.get('http://localhost:8080/auth/verify', { withCredentials: true });
+      } catch (error) {
+        navigate('/login');
+      }
+    };
+
+    checkAuth();
   }, [navigate]);
 
   const handleOpenCategoryModal = () => {

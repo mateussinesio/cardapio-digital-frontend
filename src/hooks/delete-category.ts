@@ -4,13 +4,9 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 const API_URL = 'http://localhost:8080';
 
 const deleteData = async (id: string) => {
-    const token = localStorage.getItem('token'); // Obtenha o token do localStorage
-    if (!token) {
-        throw new Error("Token não encontrado");
-    }
     await axios.delete(`${API_URL}/categories/${id}`, {
+        withCredentials: true, // Garante que o cookie seja enviado
         headers: {
-            'Authorization': `Bearer ${token}`, // Adicione o token ao header
             'Content-Type': 'application/json'
         }
     });

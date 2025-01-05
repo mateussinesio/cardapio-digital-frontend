@@ -10,11 +10,11 @@ const Login: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/auth/login', {
+      await axios.post('http://localhost:8080/auth/login', {
         login: username,
         password: password
-      });
-      localStorage.setItem('token', response.data.token);
+      }, { withCredentials: true });
+
       navigate('/cozinha/cardapio');
     } catch (error) {
       console.error('Erro ao fazer login', error);

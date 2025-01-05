@@ -4,10 +4,9 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 const API_URL = 'http://localhost:8080';
 
 const updateData = async (id: string, formData: FormData): AxiosPromise<any> => {
-    const token = localStorage.getItem('token');
     const response = axios.put(`${API_URL}/items/${id}`, formData, {
+        withCredentials: true, // Garante que o cookie seja enviado
         headers: {
-            'Authorization': `Bearer ${token}`,
             'Content-Type': 'multipart/form-data'  // Garantir que o Content-Type seja 'multipart/form-data'
         }
     });

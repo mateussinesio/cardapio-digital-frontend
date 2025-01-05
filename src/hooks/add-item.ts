@@ -4,12 +4,11 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 const API_URL = 'http://localhost:8080';
 
 const postData = async (formData: FormData): AxiosPromise<any> => {
-    const token = localStorage.getItem('token');
     const response = axios.post(API_URL + '/items', formData, {
         headers: {
-            'Authorization': `Bearer ${token}`,
             'Content-Type': 'multipart/form-data'
-        }
+        },
+        withCredentials: true // Envia cookies com a requisição
     });
     return response;
 }
@@ -22,7 +21,7 @@ export function addItem() {
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["item-data"] });
         }
-    })
+    });
 
     return mutate;
 }
