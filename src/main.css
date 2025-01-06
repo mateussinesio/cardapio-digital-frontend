@@ -19,11 +19,3 @@ body {
   color: #e0dcdd;
   font-size: 4vh;
 }
-
-#container {
-  display: flex;
-  flex-direction: column;
-  background-color: #551c36;
-  height: fit-content;
-  padding: 30px;
-}

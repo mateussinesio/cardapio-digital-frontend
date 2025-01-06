@@ -76,8 +76,8 @@ export function EditItemModal({ isVisible, handleClose, initialData }: EditItemM
                     <input type="file" onChange={handleImageChange} />
                 </form>
                 <div className="edit-item-buttons-container">
-                    <button onClick={submit} className="submit-button">Salvar</button>
-                    <button onClick={handleClose} className="close-button">Fechar</button>
+                    <button onClick={submit} className="edit-item-submit-button">Salvar</button>
+                    <button onClick={handleClose} className="edit-item-close-button">Fechar</button>
                 </div>
             </div>
         </div>

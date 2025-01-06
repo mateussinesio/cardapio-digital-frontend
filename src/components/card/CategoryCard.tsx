@@ -21,14 +21,16 @@ export function CategoryCard({ name, image, onEdit = () => { }, onDelete = () =>
     };
 
     return (
-        <div className="card">
+        <div className="category-card">
             <img src={`http://localhost:8080${image}`} alt={name} onClick={handleClick} />
             <h2 onClick={handleClick}>{name}</h2>
             {location.pathname.startsWith('/cozinha/cardapio') && (
-                <>
-                    <button className="update-category-button" onClick={onEdit}>Editar</button>
-                    <button className="delete-category-button" onClick={onDelete}>Deletar</button>
-                </>
+                <div className="category-card-buttons">
+                    <>
+                        <button className="kitchen-update-category-button" onClick={onEdit}>Editar</button>
+                        <button className="kitchen-delete-category-button" onClick={onDelete}>Deletar</button>
+                    </>
+                </div>
             )}
         </div>
     );

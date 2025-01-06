@@ -18,14 +18,14 @@ export function ItemCard({ name, description, image, price, onUpdate = () => { }
         <div className="item-card">
             <img src={`http://localhost:8080${image}`} alt={name} />
             <h2>{name}</h2>
-            <p>{description}</p>
-            <p>R$ {formattedPrice}</p>
+            <div className="item-card-description">{description}</div>
+            <div className="item-card-price"><p>R$ {formattedPrice}</p></div>
             <div className="item-card-buttons">
-                {showDeleteButton && (
-                    <button className="delete-item-button" onClick={onDelete}>Deletar</button>
-                )}
                 {showUpdateItemButton && (
                     <button className="update-item-button" onClick={onUpdate}>Editar</button>
+                )}
+                {showDeleteButton && (
+                    <button className="delete-item-button" onClick={onDelete}>Deletar</button>
                 )}
             </div>
         </div>

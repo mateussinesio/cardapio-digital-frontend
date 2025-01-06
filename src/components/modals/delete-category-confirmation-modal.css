@@ -14,7 +14,7 @@
     background-color: white;
     padding: 20px;
     height: auto;
-    width: 40%;
+    width: 50%;
     margin: 20px;
     border-radius: 20px;
     display: flex;
@@ -46,5 +46,15 @@
 .delete-category-modal-buttons-container button:hover {
     color: white;
     background-color: #421429;
+}
+
+@media (max-width: 750px) {
+    .delete-category-modal-container {
+        width: 100%;
+    }
+
+    .delete-category-modal-container h2 {
+        font-size: 19.9px;
+    }
 }
 

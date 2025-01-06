@@ -7,60 +7,44 @@
 .category-container {
     display: flex;
     flex-direction: row;
-    justify-content: left;
-    align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
-    width: 90%;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
 }
 
 .kitchen-buttons-container {
     display: flex;
     justify-content: center;
-    gap: 25px;
-}
-
-.add-category-button {
-    cursor: pointer;
+    gap: 20px;
+    flex-wrap: wrap;
     padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 9px;
-    font-size: 16px;
-    font-weight: 500;
-    width: 130px;
 }
 
-.add-category-button:hover {
-    color: white;
-    background-color: #421429;
-}
-
-.add-item-button {
-    cursor: pointer;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 9px;
-    font-size: 16px;
-    font-weight: 500;
-    width: 130px;
-}
-
-.add-item-button:hover {
-    color: white;
-    background-color: #421429;
-}
-
+.add-category-button,
+.add-item-button,
 .redirect-to-public-menu-button {
     cursor: pointer;
     padding: 20px;
-    margin-bottom: 30px;
     border-radius: 9px;
     font-size: 16px;
     font-weight: 500;
     width: 130px;
+    box-sizing: border-box;
 }
 
+.add-category-button:hover,
+.add-item-button:hover,
 .redirect-to-public-menu-button:hover {
     color: white;
     background-color: #421429;
+}
+
+@media (max-width: 510px) {
+
+    .add-category-button,
+    .add-item-button,
+    .redirect-to-public-menu-button {
+        width: 100%;
+    }
 }

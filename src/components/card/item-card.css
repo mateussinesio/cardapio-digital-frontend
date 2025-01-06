@@ -4,8 +4,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    background-color: #421429;
-    padding: 0;
+    background-color: #210a14;
     position: relative;
 }
 
@@ -18,25 +17,30 @@
 .item-card h2 {
     color: #e0dcdd;
     text-shadow: 3px 2px #260b18;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     position: absolute;
     top: 0;
-    left: 0;
     width: 100%;
-    max-width: 230px;
     background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
     border-radius: 8px 8px 0 0;
 }
 
-.item-card p {
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 100%;
-    max-width: 230px;
-    text-align: center;
-    text-shadow: 1px 1px #260b18;
+.item-card-description {
     color: #e0dcdd;
+    text-shadow: 1px 1px #260b18;
+    overflow-wrap: break-word;
+    max-width: 20ch;
     padding: 10px;
+}
+
+.item-card-price {
+    color: #e0dcdd;
+    text-shadow: 1px 1px #260b18;
+    overflow-wrap: break-word;
+    max-width: 20ch;
+    padding-bottom: 10px;
 }
 
 .item-card-buttons {
@@ -57,7 +61,7 @@
 
 .delete-item-button:hover {
     color: white;
-    background-color: #260b18;
+    background-color: #44142b;
 }
 
 .update-item-button {
@@ -70,5 +74,165 @@
 
 .update-item-button:hover {
     color: white;
-    background-color: #260b18;
+    background-color: #44142b;
+}
+
+@media (max-width: 1024px) {
+    .item-card {
+        width: 30%;
+    }
+
+    .item-card img {
+        width: 100%;
+        height: 280px;
+    }
+
+    .item-card h2 {
+        font-size: 20px;
+        width: 100%;
+    }
+
+    .update-item-button {
+        padding: 10px;
+    }
+
+    .delete-item-button {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 900px) {
+    .item-card {
+        width: 30%;
+    }
+
+    .item-card img {
+        width: 100%;
+        height: 230px;
+    }
+
+    .item-card h2 {
+        font-size: 20px;
+        width: 100%;
+    }
+
+    .update-item-button {
+        padding: 10px;
+    }
+
+    .delete-item-button {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 800px) {
+    .item-card {
+        width: 30%;
+    }
+
+    .item-card img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .item-card h2 {
+        font-size: 20px;
+        width: 100%;
+    }
+
+    .update-item-button {
+        padding: 10px;
+    }
+
+    .delete-item-button {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .item-card {
+        width: 30%;
+    }
+
+    .item-card img {
+        width: 100%;
+        height: 140px;
+    }
+
+    .item-card h2 {
+        font-size: 15px;
+        width: 100%;
+    }
+
+    .update-item-button {
+        padding: 10px;
+    }
+
+    .delete-item-button {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 450px) {
+    .item-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto auto auto;
+        position: unset;
+        width: 100%;
+    }
+
+    .item-card img {
+        width: 150px;
+        height: 140px;
+        grid-column: 1 / 2;
+        grid-row: 1 / 4;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .item-card h2 {
+        font-size: 20px;
+        width: 100%;
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        color: #e0dcdd;
+        text-shadow: 3px 2px #260b18;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        background-color: unset;
+        border-radius: 8px;
+        position: unset;
+    }
+
+    .item-card-description {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        padding: 10px;
+    }
+
+    .item-card-price {
+        text-align: left;
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+        color: #e0dcdd;
+        text-shadow: 1px 1px #260b18;
+        padding-bottom: 10px;
+    }
+
+    .item-card-buttons {
+        grid-column: 1 / 3;
+        grid-row: 4 / 5;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px;
+        width: 94%;
+    }
+
+    .update-item-button,
+    .delete-item-button {
+        padding: 10px;
+    }
 }

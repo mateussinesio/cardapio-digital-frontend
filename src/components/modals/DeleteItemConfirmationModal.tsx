@@ -10,12 +10,12 @@ export function DeleteConfirmationModal({ isVisible, handleClose, handleConfirm 
     if (!isVisible) return null;
 
     return (
-        <div className="item-modal-overlay">
-            <div className="item-modal-container">
+        <div className="delete-item-modal-overlay">
+            <div className="delete-item-modal-container">
                 <h2>Tem certeza que deseja deletar este item?</h2>
-                <div className="item-modal-buttons-container">
-                    <button onClick={handleConfirm} className="item-modal-submit-button">Confirmar</button>
-                    <button onClick={handleClose} className="item-modal-close-button">Cancelar</button>
+                <div className="delete-item-modal-buttons-container">
+                    <button onClick={handleConfirm} className="delete-item-modal-submit-button">Confirmar</button>
+                    <button onClick={handleClose} className="delete-item-modal-cancel-button">Cancelar</button>
                 </div>
             </div>
         </div>

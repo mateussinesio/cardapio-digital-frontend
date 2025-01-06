@@ -70,3 +70,82 @@
     color: white;
     background-color: #421429;
 }
+
+@media (max-width: 1280px) {
+    .edit-item-container {
+        width: 30%;
+    }
+
+    .edit-item-input-container input {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 1110px) {
+    .edit-item-container {
+        width: 40%;
+    }
+
+    .edit-item-input-container input {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 950px) {
+    .edit-item-container {
+        width: 40%;
+    }
+
+    .edit-item-input-container input {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 850px) {
+    .edit-item-container {
+        width: 45%;
+    }
+
+    .edit-item-input-container input {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 750px) {
+    .edit-item-container {
+        width: 50%;
+    }
+
+    .edit-item-input-container input {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 580px) {
+    .edit-item-container {
+        width: 60%;
+    }
+
+    .edit-item-input-container input {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 450px) {
+    .edit-item-container {
+        width: 80%;
+    }
+
+    .edit-item-container h2 {
+        font-size: 20px;
+    }
+
+    .edit-item-input-container input {
+        font-size: 11px;
+    }
+
+    .edit-item-buttons-container {
+        gap: 10px;
+        justify-content: center;
+    }
+}

@@ -14,8 +14,8 @@ export function DeleteConfirmationModal({ isVisible, handleClose, handleConfirm 
             <div className="delete-category-modal-container">
                 <h2>Tem certeza que deseja deletar esta categoria?</h2>
                 <div className="delete-category-modal-buttons-container">
-                    <button onClick={handleConfirm}>Confirmar</button>
-                    <button onClick={handleClose}>Cancelar</button>
+                    <button onClick={handleConfirm} className="delete-category-modal-submit-button">Confirmar</button>
+                    <button onClick={handleClose} className="delete-category-modal-cancel-button">Cancelar</button>
                 </div>
             </div>
         </div>

@@ -71,3 +71,82 @@
     color: white;
     background-color: #421429;
 }
+
+@media (max-width: 1280px) {
+    .add-category-modal-container {
+        width: 30%;
+    }
+
+    .add-category-modal-input-container input{
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 1110px) {
+    .add-category-modal-container {
+        width: 40%;
+    }
+
+    .add-category-modal-input-container input{
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 950px) {
+    .add-category-modal-container {
+        width: 40%;
+    }
+
+    .add-category-modal-input-container input{
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 850px) {
+    .add-category-modal-container {
+        width: 45%;
+    }
+
+    .add-category-modal-input-container input{
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 750px) {
+    .add-category-modal-container {
+        width: 50%;
+    }
+
+    .add-category-modal-input-container input{
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 580px) {
+    .add-category-modal-container {
+        width: 60%;
+    }
+
+    .add-category-modal-input-container input{
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 450px) {
+    .add-category-modal-container {
+        width: 80%;
+    }
+
+    .add-category-modal-container h2 {
+        font-size: 20px;
+    }
+
+    .add-category-modal-input-container input{
+        font-size: 11px;
+    }
+
+    .add-category-modal-buttons-container {
+        gap: 10px;
+        justify-content: center;
+    }
+}

@@ -1,4 +1,4 @@
-.overlay {
+.edit-category-overlay {
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.4);
@@ -29,13 +29,13 @@
     padding: 10px;
 }
 
-.input-container {
+.edit-category-input-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.edit-category-container input {
+.edit-category-input-container input {
     padding: 12px;
     border: 2px solid #c6c5c5c5;
     color: rgba(0, 0, 0, 0.9);
@@ -44,20 +44,20 @@
     margin-bottom: 12px;
 }
 
-.edit-category-container label {
+.edit-category-input-container label {
     padding: 10px;
     color: #242424;
     font-weight: 600;
     font-size: 18px;
 }
 
-.buttons-container {
+.edit-category-buttons-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.buttons-container button {
+.edit-category-buttons-container button {
     cursor: pointer;
     padding: 20px;
     border-radius: 9px;
@@ -66,7 +66,25 @@
     margin-top: 20px;
 }
 
-.buttons-container button:hover {
+.edit-category-buttons-container button:hover {
     color: white;
     background-color: #421429;
+}
+
+@media (max-width: 550px) {
+    .edit-category-container {
+        width: 80%;
+    }
+
+    .edit-category-container h2 {
+        font-size: 20px;
+    }
+
+    .edit-category-container label {
+        font-size: 15px;
+    }
+
+    .edit-category-container input {
+        font-size: 11px;
+    }
 }

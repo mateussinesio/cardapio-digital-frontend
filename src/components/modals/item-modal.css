@@ -84,3 +84,24 @@
     color: white;
     background-color: #421429;
 }
+
+@media (max-width: 550px) {
+    .add-item-modal-container {
+        width: 80%;
+    }
+    .add-item-modal-container h2 {
+        font-size: 20px;
+    }
+
+    .add-item-modal-input-container label {
+        font-size: 14px;
+    }
+
+    .add-item-modal-input-container input {
+        font-size: 11px;
+    }
+
+    .add-item-modal-buttons-container button {
+        font-size: 13px;
+    }
+}

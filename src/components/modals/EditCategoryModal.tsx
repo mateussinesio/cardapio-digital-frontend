@@ -62,23 +62,23 @@ export function EditCategoryModal({ isVisible, handleClose, initialData }: EditC
     if (!isVisible) return null;
 
     return (
-        <div className="overlay">
+        <div className="edit-category-overlay">
             <div className="edit-category-container">
                 <h2>Editar categoria</h2>
-                <form className="input-container">
+                <form className="edit-category-input-container">
                     <Input label="Nome:" value={name} updateValue={setName}></Input>
                         <label>Imagem:</label>
                         <input type="file" onChange={handleImageChange} />
                 </form>
-                <div className="buttons-container">
+                <div className="edit-category-buttons-container">
                     <button
                         onClick={submit}
-                        className="submit-button"
+                        className="edit-category-submit-button"
                         disabled={!isFormChanged}
                     >
                         Salvar
                     </button>
-                    <button onClick={handleClose} className="close-button">Fechar</button>
+                    <button onClick={handleClose} className="edit-category-close-button">Fechar</button>
                 </div>
             </div>
         </div>

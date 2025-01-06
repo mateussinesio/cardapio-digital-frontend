@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './items.css';
 import { ItemCard } from '../components/card/ItemCard';
 import { showItems } from '../hooks/show-items';
-import { useParams, useLocation, useNavigate } from 'react-router';
+import { useParams, useLocation } from 'react-router';
 import { EditItemModal } from '../components/modals/EditItemModal';
 import { DeleteConfirmationModal } from '../components/modals/DeleteItemConfirmationModal';
 import { deleteItem } from '../hooks/delete-item';
@@ -10,7 +10,6 @@ import { deleteItem } from '../hooks/delete-item';
 const Items: React.FC = () => {
     const { category } = useParams<{ category: string }>();
     const location = useLocation();
-    const navigate = useNavigate();
 
     useEffect(() => {
         if (location.pathname.startsWith('/cozinha/cardapio')) {
@@ -57,7 +56,7 @@ const Items: React.FC = () => {
     const showDeleteButton = location.pathname.startsWith(`/cozinha/cardapio/${category}`);
     const showUpdateItemButton = location.pathname.startsWith(`/cozinha/cardapio/${category}`);
 
-    if (isLoading) return <h1 className='verifyCategory'>Carregando...</h1>;
+    if (isLoading) return <h1 className='verifyCategory'>Carregando&hellip;</h1>;
     if (error) return <h1 className='verifyCategory'>Erro ao carregar os items dessa categoria.</h1>;
 
     return (
