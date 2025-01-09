@@ -92,9 +92,13 @@ export function ItemModal({ isVisible, handleClose, itemId }: ItemModalProps) {
                             <label>Categoria:</label>
                             <select value={category} onChange={event => setCategory(event.target.value)}>
                                 <option value="">Selecione uma categoria</option>
-                                {categories?.map(cat => (
-                                    <option key={cat.id} value={cat.name}>{cat.name}</option>
-                                ))}
+                                {categories && Array.isArray(categories) ? (
+                                    categories.map(cat => (
+                                        <option key={cat.id} value={cat.name}>{cat.name}</option>
+                                    ))
+                                ) : (
+                                    <p>Erro ao carregar as categorias.</p>
+                                )}
                             </select>
                         </div>
                     )}

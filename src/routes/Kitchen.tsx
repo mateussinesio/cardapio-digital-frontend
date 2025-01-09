@@ -69,7 +69,16 @@ const Kitchen: React.FC = () => {
   };
 
   const handleRedirectToCardapio = () => {
-    window.open('/cardapio', '_blank');
+    window.open('/projetos/cardapio_digital/cardapio', '_blank');
+  };
+
+  const handleLogout = async () => {
+    try {
+      await axios.post('http://localhost:8080/auth/logout', {}, { withCredentials: true });
+      navigate('/login');
+    } catch (error) {
+      console.error('Erro ao realizar logout:', error);
+    }
   };
 
   return (
@@ -78,6 +87,7 @@ const Kitchen: React.FC = () => {
         <button className="add-category-button" type="submit" onClick={handleOpenCategoryModal}>Adicionar categoria</button>
         <button className="add-item-button" type="submit" onClick={handleOpenItemModal}>Adicionar item</button>
         <button className="redirect-to-public-menu-button" onClick={handleRedirectToCardapio}>Ir para cardápio</button>
+        <button className="logout-button" onClick={handleLogout}>Sair</button>
       </div>
       <div className="category-container">
         {categoryDataArray.map(categoryData => (
