@@ -4,29 +4,40 @@
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    background-color: #421429;
+    background-color: black;
     padding: 0;
     position: relative;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
-.category-card img {
-    border-radius: 19px;
-    width: 250px;
-    height: 230px;
+.category-card-image-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
 }
 
-.category-card h2 {
-    color: #e0dcdd;
-    text-shadow: 3px 2px #260b18;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.category-card-image-container img,
+.category-no-image-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.category-card-image-container h2 {
     position: absolute;
     top: 0;
+    left: 0;
     width: 100%;
+    padding: 8px 0;
     background-color: rgba(0, 0, 0, 0.5);
+    color: white;
     text-align: center;
-    border-radius: 8px 8px 0 0;
+    font-size: 16px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 .category-card-buttons {
@@ -37,158 +48,46 @@
     gap: 10px;
 }
 
-.kitchen-update-category-button {
-    cursor: pointer;
-    padding: 20px;
-    border-radius: 9px;
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.kitchen-update-category-button:hover {
-    color: white;
-    background-color: #260b18;
-}
-
+.kitchen-update-category-button,
 .kitchen-delete-category-button {
     cursor: pointer;
     padding: 20px;
     border-radius: 9px;
     font-size: 16px;
     font-weight: 500;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
+.kitchen-update-category-button:hover,
 .kitchen-delete-category-button:hover {
     color: white;
     background-color: #260b18;
-}
-
-@media (max-width: 1024px) {
-    .category-card {
-        width: 30%;
-    }
-
-    .category-card img {
-        width: 100%;
-        height: 280px;
-    }
-
-    .category-card h2 {
-        font-size: 20px;
-        width: 100%;
-    }
-
-    .update-category-button {
-        padding: 10px;
-    }
-
-    .delete-category-button {
-        padding: 10px;
-    }
-}
-
-@media (max-width: 900px) {
-    .category-card {
-        width: 30%;
-    }
-
-    .category-card img {
-        width: 100%;
-        height: 230px;
-    }
-
-    .category-card h2 {
-        font-size: 20px;
-        width: 100%;
-    }
-
-    .update-category-button {
-        padding: 10px;
-    }
-
-    .delete-category-button {
-        padding: 10px;
-    }
-}
-
-@media (max-width: 800px) {
-    .category-card {
-        width: 30%;
-    }
-
-    .category-card img {
-        width: 100%;
-        height: 200px;
-    }
-
-    .category-card h2 {
-        font-size: 20px;
-        width: 100%;
-    }
-
-    .update-category-button {
-        padding: 10px;
-    }
-
-    .delete-category-button {
-        padding: 10px;
-    }
-}
-
-@media (max-width: 600px) {
-    .category-card {
-        width: 30%;
-    }
-
-    .category-card img {
-        width: 100%;
-        height: 140px;
-    }
-
-    .category-card h2 {
-        font-size: 20px;
-        width: 100%;
-    }
-
-    .update-category-button {
-        padding: 10px;
-    }
-
-    .delete-category-button {
-        padding: 10px;
-    }
 }
 
 @media (max-width: 455px) {
     .category-card {
         flex-direction: row;
         width: 100%;
-    }
-
-    .category-card h2 {
-        top: 10px;
-        left: 10px;
-        width: 50%;
-    }
-
-    .category-card img {
-        width: 50%;
-        height: 170px;
         padding: 10px;
+    }
+
+    .category-card-image-container {
+        width: 150px;
+        height: 150px;
     }
 
     .category-card-buttons {
         display: flex;
         flex-direction: column;
-        padding: 10px;
+        justify-content: center;
         gap: 10px;
+        margin-left: auto;
     }
 
-    .kitchen-update-category-button {
-        padding: 25px;
-    }
-
+    .kitchen-update-category-button,
     .kitchen-delete-category-button {
-        padding: 25px;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 5px;
     }
 }

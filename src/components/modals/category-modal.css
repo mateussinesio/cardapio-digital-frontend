@@ -1,52 +1,59 @@
 .add-category-modal-overlay {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
 }
 
 .add-category-modal-container {
     background-color: white;
     padding: 20px;
-    height: auto;
-    width: 35%;
-    margin: 12px;
-    border-radius: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90%;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .add-category-modal-container h2 {
     text-align: left;
-    font-size: 32px;
+    font-size: 28px;
     padding: 10px;
+    color: #333;
 }
 
 .add-category-modal-input-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 5px;
 }
 
-.add-category-modal-container input {
+.add-category-modal-input-container input {
     padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
     border: 2px solid #c6c5c5c5;
     color: rgba(0, 0, 0, 0.9);
-    font-size: 18px;
-    border-radius: 12px;
-    margin-bottom: 12px;
+    transition: border 0.3s ease;
 }
 
-.add-category-modal-container label {
-    padding: 10px;
+.add-category-modal-input-container input:focus {
+    border-color: #7a2137;
+    outline: none;
+}
+
+.add-category-modal-input-container label {
+    padding: 9px;
     color: #242424;
     font-weight: 600;
     font-size: 18px;
@@ -54,17 +61,20 @@
 
 .add-category-modal-buttons-container {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 .add-category-modal-buttons-container button {
     cursor: pointer;
-    padding: 20px;
-    border-radius: 9px;
+    padding: 14px 20px;
+    border-radius: 10px;
     font-size: 16px;
     font-weight: 500;
-    margin-top: 20px;
+    text-align: center;
+    width: 48%;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .add-category-modal-buttons-container button:hover {
@@ -74,74 +84,54 @@
 
 @media (max-width: 1280px) {
     .add-category-modal-container {
-        width: 30%;
-    }
-
-    .add-category-modal-input-container input{
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 1110px) {
-    .add-category-modal-container {
         width: 40%;
     }
 
-    .add-category-modal-input-container input{
+    .add-category-modal-input-container input {
         font-size: 15px;
     }
 }
 
 @media (max-width: 950px) {
     .add-category-modal-container {
-        width: 40%;
+        width: 50%;
     }
 
-    .add-category-modal-input-container input{
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 850px) {
-    .add-category-modal-container {
-        width: 45%;
-    }
-
-    .add-category-modal-input-container input{
-        font-size: 13px;
+    .add-category-modal-input-container input {
+        font-size: 14px;
     }
 }
 
 @media (max-width: 750px) {
     .add-category-modal-container {
-        width: 50%;
+        width: 60%;
     }
 
-    .add-category-modal-input-container input{
-        font-size: 11px;
+    .add-category-modal-input-container input {
+        font-size: 13px;
     }
 }
 
 @media (max-width: 580px) {
     .add-category-modal-container {
-        width: 60%;
+        width: 70%;
     }
 
-    .add-category-modal-input-container input{
-        font-size: 10px;
+    .add-category-modal-input-container input {
+        font-size: 12px;
     }
 }
 
 @media (max-width: 450px) {
     .add-category-modal-container {
-        width: 80%;
+        width: 85%;
     }
 
     .add-category-modal-container h2 {
         font-size: 20px;
     }
 
-    .add-category-modal-input-container input{
+    .add-category-modal-input-container input {
         font-size: 11px;
     }
 

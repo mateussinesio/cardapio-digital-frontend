@@ -5,9 +5,9 @@ const API_URL = 'http://localhost:8080';
 
 const updateData = async (id: string, formData: FormData): AxiosPromise<any> => {
     const response = axios.put(`${API_URL}/items/${id}`, formData, {
-        withCredentials: true, // Garante que o cookie seja enviado
+        withCredentials: true,
         headers: {
-            'Content-Type': 'multipart/form-data'  // Garantir que o Content-Type seja 'multipart/form-data'
+            'Content-Type': 'multipart/form-data'
         }
     });
     return response;

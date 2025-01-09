@@ -1,14 +1,25 @@
 import axios from "axios";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const API_URL = 'http://localhost:8080';
 
-export const deleteItem = async (id: string) => {
-    try {
-        await axios.delete(`${API_URL}/items/${id}`, {
-            withCredentials: true // Garante que o cookie seja enviado
-        });
-        console.log("Item deletado com sucesso!");
-    } catch (error) {
-        console.error("Erro ao deletar o item:", error);
-    }
-};
+const deleteData = async (id: string) => {
+    await axios.delete(`${API_URL}/items/${id}`, {
+        withCredentials: true,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+}
+
+export function deleteItem() {
+    const queryClient = useQueryClient();
+    const mutate = useMutation({
+        mutationFn: (id: string) => deleteData(id),
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ["item-data"] });
+        }
+    })
+
+    return mutate;
+}

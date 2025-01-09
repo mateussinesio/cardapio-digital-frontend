@@ -50,6 +50,7 @@ export function ItemModal({ isVisible, handleClose, itemId }: ItemModalProps) {
     const [price, setPrice] = useState(0);
     const { mutate } = addItem();
     const { data: categories, isLoading, error } = showCategories();
+    const { mutate: deleteMutate } = deleteItem();
 
     const formatPrice = (price: { toLocaleString: (arg0: string, arg1: { minimumFractionDigits: number; maximumFractionDigits: number; }) => any; }) => {
         return price.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -71,7 +72,7 @@ export function ItemModal({ isVisible, handleClose, itemId }: ItemModalProps) {
 
     const handleDelete = () => {
         if (itemId) {
-            deleteItem(itemId);
+            deleteMutate(itemId);
             handleClose();
         }
     }

@@ -6,16 +6,16 @@
 }
 
 body {
-  background-color: #551c36;
+  background-color: #e0dcdd;
 }
 
 .header {
-  background-color: #421429;
-  border-bottom: 3px solid #551c36;
+  background-color: black;
+  border-bottom: 3px solid rgb(31, 30, 30);
   padding: 1.5vh;
 }
 
 .header h1 {
   color: #e0dcdd;
-  font-size: 4vh;
+  font-size: 25px;
 }

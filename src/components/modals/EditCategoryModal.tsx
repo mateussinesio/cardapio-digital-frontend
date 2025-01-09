@@ -27,35 +27,43 @@ interface EditCategoryModalProps {
 
 export function EditCategoryModal({ isVisible, handleClose, initialData }: EditCategoryModalProps) {
     const [name, setName] = useState(initialData.name);
-    const [image, setImage] = useState(initialData.image);
-    const [imageFile, setImageFile] = useState<File | null>(null);  // New state for the selected file
+    const [image, setImage] = useState<string | undefined>(initialData.image);
+    const [imageFile, setImageFile] = useState<File | null>(null);
+    const [removeImage, setRemoveImage] = useState(false);
     const { mutate } = updateCategory(initialData.id ? initialData.id.toString() : "");
 
-    // Effect to reset image state if the modal is opened with the initial data
     useEffect(() => {
         setName(initialData.name);
         setImage(initialData.image);
+        setRemoveImage(false);
     }, [initialData]);
 
     const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files ? event.target.files[0] : null;
         if (file) {
-            setImageFile(file);  // Save the selected image file
-            setImage(URL.createObjectURL(file));  // Display the image preview
+            setImageFile(file);
+            setImage(URL.createObjectURL(file));
+            setRemoveImage(false);
         }
     };
 
-    // Check if there were any changes
-    const isFormChanged = name !== initialData.name || image !== initialData.image || imageFile !== null;
+    const handleRemoveImage = () => {
+        setImage(undefined);
+        setImageFile(null);
+        setRemoveImage(true);
+    };
+
+    const isFormChanged = name !== initialData.name || imageFile !== null || removeImage;
 
     const submit = () => {
         const categoryData: CategoryData = {
             id: initialData.id ? initialData.id.toString() : "",
-            name: name === initialData.name ? initialData.name : name,  // Only update if changed
-            image: imageFile ? imageFile.name : image  // Only update if image is changed
+            name: name === initialData.name ? initialData.name : name,
+            image: imageFile ? imageFile.name : image,
+            removeImage: removeImage
         };
 
-        mutate({ categoryData, imageFile });
+        mutate({ categoryData, imageFile, removeImage });
         handleClose();
     };
 
@@ -67,8 +75,20 @@ export function EditCategoryModal({ isVisible, handleClose, initialData }: EditC
                 <h2>Editar categoria</h2>
                 <form className="edit-category-input-container">
                     <Input label="Nome:" value={name} updateValue={setName}></Input>
-                        <label>Imagem:</label>
-                        <input type="file" onChange={handleImageChange} />
+                    <label>Imagem:</label>
+                    <input type="file" onChange={handleImageChange} />
+                    {image && !imageFile && (
+                        <div className="edit-category-image-preview">
+                            <img src={image.startsWith('http') ? image : `http://localhost:8080${image}`} alt="Preview" />
+                            <button type="button" onClick={handleRemoveImage}>Remover imagem</button>
+                        </div>
+                    )}
+                    {imageFile && (
+                        <div className="edit-category-image-preview">
+                            <img src={URL.createObjectURL(imageFile)} alt="Preview" />
+                            <button type="button" onClick={handleRemoveImage}>Remover imagem</button>
+                        </div>
+                    )}
                 </form>
                 <div className="edit-category-buttons-container">
                     <button

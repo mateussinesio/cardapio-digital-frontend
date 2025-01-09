@@ -69,7 +69,7 @@ const Kitchen: React.FC = () => {
   };
 
   const handleRedirectToCardapio = () => {
-    window.open('/projetos/cardapio_digital/cardapio', '_blank');
+    window.open('/cardapio', '_blank');
   };
 
   const handleLogout = async () => {

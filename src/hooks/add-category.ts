@@ -8,7 +8,7 @@ const postData = async (data: FormData): AxiosPromise<any> => {
         headers: {
             'Content-Type': 'multipart/form-data'
         },
-        withCredentials: true // Envia cookies com a requisição
+        withCredentials: true
     });
     return response;
 }

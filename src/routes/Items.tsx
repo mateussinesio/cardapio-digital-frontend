@@ -26,6 +26,7 @@ const Items: React.FC = () => {
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
     const [selectedItem, setSelectedItem] = useState<any>(null);
+    const { mutate: deleteMutate } = deleteItem();
 
     const handleCloseEditModal = () => {
         setIsEditModalOpen(false);
@@ -43,7 +44,7 @@ const Items: React.FC = () => {
 
     const handleConfirmDelete = () => {
         if (selectedItemId) {
-            deleteItem(selectedItemId);
+            deleteMutate(selectedItemId);
             handleCloseDeleteModal();
         }
     };

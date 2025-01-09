@@ -22,13 +22,15 @@ const Input = ({ label, value, updateValue }: InputProps) => {
 interface EditItemModalProps {
     isVisible: boolean;
     handleClose: () => void;
-    initialData: ItemData; // Dados iniciais do item
+    initialData: ItemData;
 }
 
 export function EditItemModal({ isVisible, handleClose, initialData }: EditItemModalProps) {
     const [name, setName] = useState(initialData.name);
     const [description, setDescription] = useState(initialData.description);
-    const [image, setImage] = useState<File | null>(null);  // A imagem agora é do tipo File
+    const [image, setImage] = useState<string | undefined>(initialData.image);
+    const [imageFile, setImageFile] = useState<File | null>(null);
+    const [removeImage, setRemoveImage] = useState(false);
     const [price, setPrice] = useState(initialData.price);
     const { mutate } = updateItem(initialData.id ? initialData.id.toString() : "");
 
@@ -36,29 +38,42 @@ export function EditItemModal({ isVisible, handleClose, initialData }: EditItemM
         setName(initialData.name);
         setDescription(initialData.description);
         setPrice(initialData.price);
+        setImage(initialData.image);
+        setRemoveImage(false);
     }, [initialData]);
 
     const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (event.target.files) {
-            setImage(event.target.files[0]);
+        const file = event.target.files ? event.target.files[0] : null;
+        if (file) {
+            setImageFile(file);
+            setImage(URL.createObjectURL(file));
+            setRemoveImage(false);
         }
     };
+
+    const handleRemoveImage = () => {
+        setImage(undefined);
+        setImageFile(null);
+        setRemoveImage(true);
+    };
+
+    const isFormChanged = name !== initialData.name || imageFile !== null || removeImage;
 
     const submit = () => {
         const formData = new FormData();
         formData.append("name", name);
         formData.append("description", description);
         formData.append("price", price.toString());
-        if (image) {
-            formData.append("image", image); // Anexando a imagem ao FormData
+        if (imageFile) {
+            formData.append("image", imageFile);
         }
+        formData.append("removeImage", removeImage.toString());
 
-        // A categoria é enviada com o valor já existente no initialData, sem necessidade de verificação
         if (initialData.category) {
             formData.append("category", initialData.category);
         }
 
-        mutate(formData);  // Enviando FormData
+        mutate(formData);
         handleClose();
     };
 
@@ -74,9 +89,27 @@ export function EditItemModal({ isVisible, handleClose, initialData }: EditItemM
                     <Input label="Preço:" value={price} updateValue={setPrice} />
                     <label>Imagem:</label>
                     <input type="file" onChange={handleImageChange} />
+                    {image && !imageFile && (
+                        <div className="image-preview">
+                            <img src={image.startsWith('http') ? image : `http://localhost:8080${image}`} alt="Preview" />
+                            <button type="button" onClick={handleRemoveImage}>Remover imagem</button>
+                        </div>
+                    )}
+                    {imageFile && (
+                        <div className="image-preview">
+                            <img src={URL.createObjectURL(imageFile)} alt="Preview" />
+                            <button type="button" onClick={handleRemoveImage}>Remover imagem</button>
+                        </div>
+                    )}
                 </form>
                 <div className="edit-item-buttons-container">
-                    <button onClick={submit} className="edit-item-submit-button">Salvar</button>
+                    <button
+                        onClick={submit}
+                        className="edit-item-submit-button"
+                        disabled={!isFormChanged}
+                    >
+                        Salvar
+                    </button>
                     <button onClick={handleClose} className="edit-item-close-button">Fechar</button>
                 </div>
             </div>

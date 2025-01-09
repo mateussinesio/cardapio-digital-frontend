@@ -2,6 +2,12 @@
     margin: 0;
     padding: 0;
     border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3f3f3;
 }
 
 .login-page-container {
@@ -10,16 +16,17 @@
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    justify-content: center;
 }
 
 .login-container {
     background-color: white;
-    padding: 20px;
-    height: auto;
+    padding: 30px;
     width: 100%;
     max-width: 400px;
     margin: 12px;
-    border-radius: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,7 +39,11 @@
 
 .login-container h1 {
     padding: 10px;
-    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 .login-page-input-container {
@@ -40,36 +51,58 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    width: 100%;
 }
 
 .login-container input {
-    padding: 12px;
-    border: 2px solid #c6c5c5c5;
+    padding: 14px;
+    border: 2px solid #ccc;
     color: rgba(0, 0, 0, 0.9);
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     width: 100%;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.login-container input:focus {
+    border-color: #421429;
+    outline: none;
 }
 
 .login-container button {
     cursor: pointer;
-    padding: 20px;
+    padding: 14px;
     border-radius: 9px;
     font-size: 16px;
     font-weight: 500;
     margin-top: 10px;
     width: 100%;
+    background-color: #421429;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
 }
 
 .login-container button:hover {
-    color: white;
-    background-color: #421429;
+    background-color: #7a2137;
 }
 
 @media (max-width: 550px) {
     .login-container {
         width: 93%;
+        padding: 25px;
+    }
+
+    .login-container h1 {
+        font-size: 24px;
+    }
+
+    .login-container input {
+        font-size: 14px;
+    }
+
+    .login-container button {
+        font-size: 14px;
     }
 }

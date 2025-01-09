@@ -5,7 +5,7 @@ const API_URL = 'http://localhost:8080';
 
 const deleteData = async (id: string) => {
     await axios.delete(`${API_URL}/categories/${id}`, {
-        withCredentials: true, // Garante que o cookie seja enviado
+        withCredentials: true,
         headers: {
             'Content-Type': 'application/json'
         }

@@ -13,7 +13,7 @@ function Menu() {
           <CategoryCard
             key={categoryData.id}
             name={categoryData.name}
-            image={categoryData.image}
+            image={categoryData.image ?? ""}
           />
         ))}
       </div>

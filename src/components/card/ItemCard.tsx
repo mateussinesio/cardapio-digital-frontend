@@ -3,7 +3,7 @@ import "./item-card.css";
 interface ItemCardProps {
     name: string;
     description: string;
-    image: string;
+    image?: string;
     price: number;
     onUpdate?: () => void;
     onDelete?: () => void;
@@ -16,7 +16,11 @@ export function ItemCard({ name, description, image, price, onUpdate = () => { }
 
     return (
         <div className="item-card">
-            <img src={`http://localhost:8080${image}`} alt={name} />
+            {image ? (
+                <img src={`http://localhost:8080${image}`} alt={name} />
+            ) : (
+                <div className="no-image-placeholder"></div>
+            )}
             <h2>{name}</h2>
             <div className="item-card-description">{description}</div>
             <div className="item-card-price"><p>R$ {formattedPrice}</p></div>

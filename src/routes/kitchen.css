@@ -16,14 +16,15 @@
 .kitchen-buttons-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 13px;
     flex-wrap: wrap;
     padding: 20px;
 }
 
 .add-category-button,
 .add-item-button,
-.redirect-to-public-menu-button {
+.redirect-to-public-menu-button,
+.logout-button {
     cursor: pointer;
     padding: 20px;
     border-radius: 9px;
@@ -31,11 +32,13 @@
     font-weight: 500;
     width: 130px;
     box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .add-category-button:hover,
 .add-item-button:hover,
-.redirect-to-public-menu-button:hover {
+.redirect-to-public-menu-button:hover,
+.logout-button:hover {
     color: white;
     background-color: #421429;
 }
@@ -44,7 +47,8 @@
 
     .add-category-button,
     .add-item-button,
-    .redirect-to-public-menu-button {
+    .redirect-to-public-menu-button,
+    .logout-button {
         width: 100%;
     }
 }
