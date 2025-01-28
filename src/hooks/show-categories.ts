@@ -5,7 +5,7 @@ import { CategoryData } from "../interface/category-data";
 const API_URL = 'http://localhost:8080';
 
 const fetchData = async (): AxiosPromise<CategoryData[]> => {
-    const response = axios.get(API_URL + '/categories');
+    const response = axios.get(API_URL + '/categories', {withCredentials: true});
     return response;
 }
 
