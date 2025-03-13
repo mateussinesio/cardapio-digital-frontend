@@ -6,6 +6,10 @@ Na aplicação é possível adicionar, editar e deletar categorias e itens para 
 
 Esta aplicação utiliza **React**, **React Query** e **TypeScript**.
 
+[Ver projeto no meu portfolio.](https://mateussinesio.com/projetos/cardapio_digital/login)
+
+Após clicar para ver o projeto, a aplicação pedirá usuário e senha. Utilize 'visitante' como usuário e senha.
+
 <br>
 
 # Como instalar o projeto
